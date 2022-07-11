@@ -40,15 +40,23 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
          h2.style.color = 'red';
          pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
          copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
-         if(fuelLevel < 10000) {fuelStatus.innerHTML = 'Fuel Level too low'};
-         if(cargoLevel > 10000) {cargoStatus.innerHTML = 'Too much cargo!'};
+         if(fuelLevel < 10000) {
+             fuelStatus.innerHTML = 'Fuel level too low for launch'
+            } else {fuelStatus.innerHTML = 'Fuel level high enough for launch'};
+         if(cargoLevel > 10000) {
+             cargoStatus.innerHTML = 'Cargo mass too heavy for launch'
+            } else {cargoStatus.innerHTML = 'Cargo mass low enough for launch'};
      } else {
          h2.innerHTML = 'Shuttle is ready for launch';
          h2.style.color = 'green';
          list.style.visibility = 'hidden';
-     }
+         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+         copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
+         fuelStatus.innerHTML = 'Fuel level high enough for launch';    
+         cargoStatus.innerHTML = 'Cargo mass low enough for launch';
+        }
  }
- 
+
  async function myFetch() {
      let planetsReturned;
  
